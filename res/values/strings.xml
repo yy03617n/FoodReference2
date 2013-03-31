@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FoodReference2</string>
+    <string name="action_settings">Settings</string>
+    <string name="title">Food Reference</string>
+    <string name="title_activity_reference">Reference</string>
+    <string name="button1">FoodReference</string>
+    <string name="button2">HealthTrack</string>
+    <string name="title_activity_track">Track</string>
+    <string name="result">Result</string>
+        <string name="track">Track</string>
+            <string name="reftitle">Reference search</string>
+        <string name="resulttitle">Track</string>
+    <string name="title_activity_result">Result</string>
+
+   
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Send</string>
+    <string name="title_activity_display_message">My Message</string>
+    
+</resources>
