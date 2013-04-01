@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 
+@SuppressWarnings("unused")
 public class MainActivity extends Activity {
 
 	@Override
@@ -29,4 +30,3 @@ public class MainActivity extends Activity {
 		Intent intent = new Intent(this, Reference.class);    
 	startActivity(intent);}
 	}
-
