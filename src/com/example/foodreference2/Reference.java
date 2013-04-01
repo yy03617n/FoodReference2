@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-
 public class Reference extends Activity {
 
 	protected void onCreate(Bundle savedInstanceState) {
@@ -19,18 +18,16 @@ public class Reference extends Activity {
 		setContentView(R.layout.activity_reference);
 	}
 
-
 	public final static String EXTRA_MESSAGE = "com.example.foodreference2.MESSAGE";
-	@Override    
-		public boolean onOptionsItemSelected(MenuItem item) {        
-		switch (item.getItemId()) {        
-		case android.R.id.home:NavUtils.navigateUpFromSameTask(this);            
-			return true;        
-			}        
-		return super.onOptionsItemSelected(item);    
 
-
-
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			NavUtils.navigateUpFromSameTask(this);
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
 
 	}
 

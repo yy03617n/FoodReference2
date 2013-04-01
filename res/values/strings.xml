@@ -9,14 +9,13 @@
     <string name="button2">HealthTrack</string>
     <string name="title_activity_track">Track</string>
     <string name="result">Result</string>
-        <string name="track">Track</string>
-            <string name="reftitle">Reference search</string>
-        <string name="resulttitle">Track</string>
+    <string name="track">Track</string>
+    <string name="reftitle">Reference search</string>
+    <string name="resulttitle">Track</string>
     <string name="title_activity_result">Result</string>
-
-   
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
     <string name="title_activity_display_message">My Message</string>
-    
+    <string name="menu_settings">Menu Settings</string>
+
 </resources>
