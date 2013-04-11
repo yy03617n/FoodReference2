@@ -19,13 +19,15 @@ public class FoodProvider extends ContentProvider {
 	private static final String DATABASE_TABLE = "food";
 	public static final String COLUMN_ROWID = "_id";
 	public static final String COLUMN_CATEGORY = "categoryId";
-	public static final String COLUMN_CONTAINS = "containsId";
+	/* public static final String COLUMN_CONTAINS = "containsId"; */
 	public static final String COLUMN_CONTENT = "contentId";
 	public static final String COLUMN_FOOD = "foodId";
+	public static final String COLUMN_USER = "userId";
+	public static final String COLUMN_DAY = "date";
 	private static final String DATABASE_CREATE = "create table"
 			+ DATABASE_TABLE + " (" + COLUMN_ROWID
 			+ " integer primary key autoincrement, " + COLUMN_CATEGORY
-			+ " text not null, " + COLUMN_CONTAINS + " text not null, "
+			+ " text not null, " /* + COLUMN_CONTAINS + " text not null, " */
 			+ COLUMN_CONTENT + " text not null, " + COLUMN_FOOD
 			+ " text not null);";
 	private static final int LIST_FOOD = 0;
@@ -50,7 +52,7 @@ public class FoodProvider extends ContentProvider {
 	public Cursor query(Uri uri, String[] ignored1, String ignored2,
 			String[] ignored3, String ignored4) {
 		String[] projection = new String[] { FoodProvider.COLUMN_ROWID,
-				FoodProvider.COLUMN_CATEGORY, FoodProvider.COLUMN_CONTAINS,
+				FoodProvider.COLUMN_CATEGORY,/* FoodProvider.COLUMN_CONTAINS, */
 				FoodProvider.COLUMN_CONTENT, FoodProvider.COLUMN_FOOD };
 		Cursor c;
 		switch (sURIMatcher.match(uri)) {
