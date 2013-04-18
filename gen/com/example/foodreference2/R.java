@@ -36,6 +36,7 @@ public final class R {
         public static final int activity_reference=0x7f030001;
         public static final int activity_result=0x7f030002;
         public static final int activity_track=0x7f030003;
+        public static final int view_foodcatagories=0x7f030004;
     }
     public static final class menu {
         public static final int activity_main=0x7f070000;

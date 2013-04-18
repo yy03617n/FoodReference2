@@ -34,11 +34,6 @@ public class Reference extends Activity {
 		return super.onOptionsItemSelected(item);
 
 	}
-	public void addButtons(String[][] data){
-		
-		
-		
-		
-	}
+	
 
 }
