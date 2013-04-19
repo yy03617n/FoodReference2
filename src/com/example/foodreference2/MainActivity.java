@@ -27,6 +27,6 @@ public class MainActivity extends Activity {
 
 	/** Called when the user clicks the Send button */
 	public void sendMessage(View view) {    
-		Intent intent = new Intent(this, view_foodcatagories.class);    
+		Intent intent = new Intent(this, Result.class);    
 	startActivity(intent);}
 	}

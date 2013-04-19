@@ -32,18 +32,23 @@
         </activity>
         <activity
             android:name="com.example.foodreference2.Track"
-            android:label="@string/title_activity_track" 
-             android:parentActivityName="com.example.myfirstapp.MainActivity" >        
-                <meta-data            android:name="android.support.PARENT_ACTIVITY"            
-                android:value="com.example.myfirstapp.MainActivity" />  
+            android:label="@string/title_activity_track"
+            android:parentActivityName="com.example.myfirstapp.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.myfirstapp.MainActivity" />
         </activity>
         <activity
             android:name="com.example.foodreference2.Result"
-            android:label="@string/title_activity_result" 
+            android:label="@string/title_activity_result"
             android:parentActivityName="com.example.foodreference2.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.foodreference2.Reference" />
+        </activity>
+        <activity
+            android:name="com.example.foodreference2.View_list"
+            android:label="@string/title_activity_view_list" >
         </activity>
     </application>
 
