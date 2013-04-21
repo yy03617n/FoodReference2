@@ -20,7 +20,7 @@ public class view_foodcatagories extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		setListAdapter(new ArrayAdapter<String>(context, R.layout.view_foodcatagories,ITEMS));
+		setListAdapter(new ArrayAdapter<String>(context, R.layout.activity_view_list,ITEMS));
 		ListView listView = getListView();
 		listView.setTextFilterEnabled(true);
 		listView.setOnItemClickListener(new OnItemClickListener() {
@@ -29,7 +29,7 @@ public class view_foodcatagories extends ListActivity {
 			 if (!isinsubstate){
 				//ITEMS =  ;
 				//ABOVE NEEDS QUEREY TO SET ARRAY WITH ITEMS
-				setListAdapter(new ArrayAdapter<String>(view_foodcatagories.this, R.layout.view_foodcatagories,ITEMS));
+				setListAdapter(new ArrayAdapter<String>(view_foodcatagories.this, R.layout.activity_view_list,ITEMS));
 				isinsubstate = true;
 				} else if (isinsubstate){
 					Intent i = new Intent(context, detailed_view.class);
@@ -52,7 +52,7 @@ public class view_foodcatagories extends ListActivity {
 		if (isinsubstate){
 			//ITEMS = ;
 			//ABOVE DATABASE CALL FOR CATAGORIES
-			setListAdapter(new ArrayAdapter<String>(context, R.layout.view_foodcatagories,ITEMS));
+			setListAdapter(new ArrayAdapter<String>(context, R.layout.activity_view_list,ITEMS));
 			isinsubstate = false;
 		}else{
 			super.onBackPressed();

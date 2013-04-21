@@ -6,8 +6,10 @@ import android.database.sqlite.*;
 import android.net.*;
 
 public class FoodProvider extends ContentProvider {
-	/* I don't know what the URIs are going to be so for now they're empty
- 	   strings. */
+	/*
+	 * I don't know what the URIs are going to be so for now they're empty
+	 * strings.
+	 */
 	public static String AUTHORITY = "";
 	public static final Uri CONTENT_URI = Uri.parse("");
 	public static final String FOODS_MIME_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE
@@ -19,15 +21,18 @@ public class FoodProvider extends ContentProvider {
 	private static final String DATABASE_TABLE = "food";
 	public static final String COLUMN_ROWID = "_id";
 	public static final String COLUMN_CATEGORY = "categoryId";
-	public static final String COLUMN_CONTAINS = "containsId";
 	public static final String COLUMN_CONTENT = "contentId";
 	public static final String COLUMN_FOOD = "foodId";
-	private static final String DATABASE_CREATE = "create table"
+	private static final String DATABASE_CREATE_FOOD = "create table"
 			+ DATABASE_TABLE + " (" + COLUMN_ROWID
 			+ " integer primary key autoincrement, " + COLUMN_CATEGORY
-			+ " text not null, " + COLUMN_CONTAINS + " text not null, "
-			+ COLUMN_CONTENT + " text not null, " + COLUMN_FOOD
-			+ " text not null);";
+			+ " text not null, " + COLUMN_CONTENT + " text not null, "
+			+ COLUMN_FOOD + " text not null);";
+	private static final String DATABASE_CREATE_CATEGORY = "create table"
+			+ DATABASE_TABLE + " (" + COLUMN_ROWID
+			+ " integer primary key autoincrement, " + COLUMN_CATEGORY
+			+ " text not null, " + COLUMN_CONTENT + " text not null, "
+			+ COLUMN_FOOD + " text not null);";
 	private static final int LIST_FOOD = 0;
 	private static final int ITEM_FOOD = 1;
 	private static final UriMatcher sURIMatcher = buildUriMatcher();
@@ -47,30 +52,10 @@ public class FoodProvider extends ContentProvider {
 	}
 
 	@Override
-	public Cursor query(Uri uri, String[] ignored1, String ignored2,
-			String[] ignored3, String ignored4) {
-		String[] projection = new String[] { FoodProvider.COLUMN_ROWID,
-				FoodProvider.COLUMN_CATEGORY, FoodProvider.COLUMN_CONTAINS,
-				FoodProvider.COLUMN_CONTENT, FoodProvider.COLUMN_FOOD };
-		Cursor c;
-		switch (sURIMatcher.match(uri)) {
-		case LIST_FOOD:
-			c = mDd.query(FoodProvider.DATABASE_TABLE, projection, null, null,
-					null, null, null);
-			break;
-		case ITEM_FOOD:
-			c = mDd.query(FoodProvider.DATABASE_TABLE, projection,
-					FoodProvider.COLUMN_CATEGORY + "+?",
-					new String[] { Long.toString(ContentUris.parseId(uri)) },
-					null, null, null, null);
-			if (c != null && c.getCount() > 0) {
-				c.moveToFirst();
-			}
-			break;
-		default:
-			throw new IllegalArgumentException("Unknown Uri: " + uri);
-		}
-		c.setNotificationUri(getContext().getContentResolver(), uri);
+	public Cursor query(Uri uri, String[] iD, String ignore,
+		String[] returned_column_Name, String column_Name) {
+		Cursor c = mDd.query(uri.toString(), returned_column_Name, column_Name + "=?",
+				iD, null, null, null);	
 		return c;
 	}
 
@@ -121,7 +106,8 @@ public class FoodProvider extends ContentProvider {
 
 		@Override
 		public void onCreate(SQLiteDatabase db) {
-			db.execSQL(DATABASE_CREATE);
+			db.execSQL(DATABASE_CREATE_FOOD);
+			db.execSQL(DATABASE_CREATE_CATEGORY);
 		}
 
 		@Override
