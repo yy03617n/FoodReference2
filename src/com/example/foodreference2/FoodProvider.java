@@ -28,6 +28,10 @@ public class FoodProvider extends ContentProvider {
 			+ " integer primary key autoincrement, " + COLUMN_CATEGORY
 			+ " text not null, " + COLUMN_CONTENT + " text not null, "
 			+ COLUMN_FOOD + " text not null);";
+	// the above string (DATABASE_CREATE_FOOD) should be used as an example for
+	// creating the create command for each of our database tables
+	// Replicate below (the one below has not been modified)
+	// see line 111
 	private static final String DATABASE_CREATE_CATEGORY = "create table"
 			+ DATABASE_TABLE + " (" + COLUMN_ROWID
 			+ " integer primary key autoincrement, " + COLUMN_CATEGORY
@@ -51,11 +55,10 @@ public class FoodProvider extends ContentProvider {
 		return true;
 	}
 
-	@Override
 	public Cursor query(Uri uri, String[] iD, String ignore,
-		String[] returned_column_Name, String column_Name) {
-		Cursor c = mDd.query(uri.toString(), returned_column_Name, column_Name + "=?",
-				iD, null, null, null);	
+			String[] returned_column_Name, String column_Name) {
+		Cursor c = mDd.query(uri.toString(), returned_column_Name, column_Name
+				+ "=?", iD, null, null, null);
 		return c;
 	}
 
@@ -105,6 +108,7 @@ public class FoodProvider extends ContentProvider {
 		}
 
 		@Override
+		// insert created DB calls below, one for each table!!
 		public void onCreate(SQLiteDatabase db) {
 			db.execSQL(DATABASE_CREATE_FOOD);
 			db.execSQL(DATABASE_CREATE_CATEGORY);
